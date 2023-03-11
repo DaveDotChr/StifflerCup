@@ -1,4 +1,35 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+// @use '@angular/material/prebuilt-themes/purple-green.css'as a;
+// @include mat-core($general-typography); 
+@include mat.core();
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+
+// $my-primary: mat.define-palette(mat.$deep-purple, 500);
+// $my-accent: mat.define-palette(mat.$amber, A200, A100, A400);
+
+// // The "warn" palette is optional and defaults to red if not specified.
+// $my-warn: mat.define-palette(mat.$red-palette);
+
+$my-theme: mat.define-dark-theme((
+ color: (
+   primary: mat.define-palette(mat.$purple-palette),
+   accent: mat.define-palette(mat.$green-palette),
+   warn: mat.define-palette(mat.$red-palette),
+ ),
+ typography: mat.define-typography-config(),
+ density: 0,
+));
+
+@include mat.core-theme($my-theme);
+@include mat.button-theme($my-theme);
+
+.darkmode{
+
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

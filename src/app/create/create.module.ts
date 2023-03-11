@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CreationComponent } from './creation/creation.component';
-import { ErstelleFrageComponent } from './creation/erstelle-frage/erstelle-frage.component';
+import { ErstelleFrageComponent } from './erstelle-frage/erstelle-frage.component';
 import { creationRouting } from './create.routing';
+import { CreateComponent } from './create.component';
 
 /*
   Modul soll das erstellen/editieren und löschen von Fragen und einem kompletten Quiz/StifflerCup umfassen
@@ -19,8 +19,8 @@ import { creationRouting } from './create.routing';
 
 @NgModule({
   declarations: [
-    CreationComponent,
-    ErstelleFrageComponent
+    ErstelleFrageComponent,
+    CreateComponent
   ],
   imports: [
     CommonModule,
