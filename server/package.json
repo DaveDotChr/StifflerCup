@@ -1,0 +1,11 @@
+{
+  "name": "stifflercup-server",
+  "description": "parse-server for stifflercup-server",
+  "scripts": {
+    "start": "parse-server config.json",
+    "dashboard": "parse-dashboard --dev --appId 1337 --masterKey 420 --serverURL \"http://localhost:1337/parse\""
+  },
+  "dependencies": {
+    "parse-server": "^3.9.0"
+  }
+}
