@@ -3,5 +3,11 @@
   "masterKey": "420",
   "appName": "stifflercup-server",
   "cloud": "./cloud/main",
-  "databaseURI": "mongodb://127.0.0.1:27017/stifflercup-server"
+  "databaseURI": "mongodb://127.0.0.1:27017/stifflercup-server",
+  "enforcePrivateUsers": false,
+  "fileUpload": {
+    "enableForPublic": true,
+    "enableForAnonymousUser": false,
+    "enableForAuthenticatedUser": true
+  }
 }

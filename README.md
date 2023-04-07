@@ -34,5 +34,5 @@ https://www.mongodb.com/try/download/community
 ## Dashboard
 npm install -g parse-dashboard
 
-starten mit: npm dashboard
-Erreichbar unter -> http://127.0.0.1:4040/apps/1337
+starten mit: npm run dashboard
+Erreichbar unter -> http://127.0.0.1:4040/apps/1337 / http://localhost:4040/apps/1337

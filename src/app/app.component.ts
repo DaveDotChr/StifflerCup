@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as Parse from 'parse';
+import { DBAdapterService } from './services/dbadapter.service';
+import { Frage } from './model/Frage';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +11,7 @@ import * as Parse from 'parse';
 export class AppComponent implements OnInit{
   title = 'StifflerCup';
 
-  constructor(){}
+  constructor(private dbAdapter: DBAdapterService){}
   base64img: string;
   // Modules:
   // 1. Fragen erstellen/editieren/löschen
@@ -25,16 +27,18 @@ export class AppComponent implements OnInit{
     console.log("onInit");
     let image: File;
     let reader: FileReader = new FileReader();
-    
-    let loadedImage = new Image();
 
     reader.onload = (file) => {
-      console.log(file);
-      console.log(file.target.result);
-      loadedImage.src = file.target.result.toString();
       this.base64img = file.target.result.toString();
-      (<HTMLImageElement>document.getElementById("testimage")).src = this.base64img;
-      return (result) => { console.log(result);}
+
+      let p_file = new Parse.File("picture.png", {base64: this.base64img});
+      let frage = new Frage();
+      frage.image = p_file;
+      frage.frage = "Sieht man das?";
+      frage.punkte = 100;
+      this.dbAdapter.saveToDB(frage);
+
+      // (<HTMLImageElement>document.getElementById("testimage")).src = this.base64img;
     }
 
 

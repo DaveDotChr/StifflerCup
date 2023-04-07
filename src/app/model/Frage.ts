@@ -1,4 +1,11 @@
-class Frage extends ParseDBObject {
+import { ParseDBObject } from "./ParseDBObject";
+
+export class Frage extends ParseDBObject {
+
+    constructor(){
+        //-> Name der "Collection/Tabelle" in Parse setzen.
+        super("Frage");
+    }
 
     frage: string = "";
     punkte: number = 0;
@@ -9,7 +16,9 @@ class Frage extends ParseDBObject {
         throw new Error("Method not implemented.");
     }
     prepareForDB(): void {
-        throw new Error("Method not implemented.");
+        this.set("frage", this.frage);
+        this.set("punkte", this.punkte);
+        this.set("image", this.image);
     }
 
 

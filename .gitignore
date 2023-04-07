@@ -43,3 +43,4 @@ Thumbs.db
 
 #parseserver
 /server/node_modules
+server/logs
