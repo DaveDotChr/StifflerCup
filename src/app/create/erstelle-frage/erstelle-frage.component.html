@@ -1,1 +1,12 @@
 <p>erstelle-frage works!</p>
+<input mat-input type="file">
+
+<button mat-raised-button color="primary" (click)="fragenSelektieren()"> Fragen selektieren </button>
+
+<div class="bg-orange-500">
+    <div *ngFor="let frage of fragen" class="mb-5">
+        <div>Frage: {{frage.frage}}</div>
+        <div>Punkte: {{frage.punkte}}</div>
+        <img *ngIf="frage.image != undefined" src={{frage.image._url}}>
+    </div>
+</div>

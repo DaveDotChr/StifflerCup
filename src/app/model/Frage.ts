@@ -13,7 +13,9 @@ export class Frage extends ParseDBObject {
 
 
     prepareForAPP(): void {
-        throw new Error("Method not implemented.");
+        this.frage = this.get("frage")
+        this.punkte = this.get("punkte")
+        this.image = this.get("image")
     }
     prepareForDB(): void {
         this.set("frage", this.frage);
