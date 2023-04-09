@@ -25,3 +25,14 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Server Setup
+Mongodb download 6.0.5
+Service name: "stifflercup-server"
+https://www.mongodb.com/try/download/community
+
+## Dashboard
+npm install -g parse-dashboard
+
+starten mit: npm run dashboard
+Erreichbar unter -> http://127.0.0.1:4040/apps/1337 / http://localhost:4040/apps/1337
