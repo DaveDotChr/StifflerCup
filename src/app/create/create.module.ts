@@ -4,7 +4,8 @@ import { ErstelleFrageComponent } from './erstelle-frage/erstelle-frage.componen
 import { creationRouting } from './create.routing';
 import { CreateComponent } from './create.component';
 import { MatButtonModule } from '@angular/material/button';
-import {MatInputModule} from '@angular/material/input'; 
+import { MatInputModule } from '@angular/material/input'; 
+
 /*
   Modul soll das erstellen/editieren und löschen von Fragen und einem kompletten Quiz/StifflerCup umfassen
   Ebenfalls sollte man sich anschauen können welche Fragen existieren um diesen bei sich einbauen zu können
@@ -16,7 +17,6 @@ import {MatInputModule} from '@angular/material/input';
   2. FragenEditor -> .../create/frage
   3. Übersicht    -> .../create/uebersicht
 */
-
 
 @NgModule({
   declarations: [

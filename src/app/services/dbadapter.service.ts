@@ -51,7 +51,7 @@ export class DBAdapterService {
   getFragen(query: Parse.Query<Frage>): Subject<Frage[]>{
     let result = new Subject<Frage[]>();
     query.find().then((fragen: Frage[]) => {
-      this.prepfn(fragen);
+      // this.prepfn(fragen);
       result.next(fragen);
     });
     return result;

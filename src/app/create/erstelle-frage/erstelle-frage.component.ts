@@ -21,6 +21,29 @@ export class ErstelleFrageComponent {
 
   ngOnInit() {
     
+
+    let test = new Parse.Object("asdf");
+    test.set("count", 4);
+
+    test.save();
+
+
+    test.get("count")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     let image: File;
     let reader: FileReader = new FileReader();
 
@@ -54,6 +77,7 @@ export class ErstelleFrageComponent {
     let query = new Parse.Query(Frage).include("image");
     this.dbAdapter.getFragen(query).pipe(first()).subscribe((fragen: Frage[]) => {
       this.fragen = fragen;
+      fragen.map(x => x.prepareForAPP());
       console.log(fragen);
     });
   }
