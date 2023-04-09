@@ -30,6 +30,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 Mongodb download 6.0.5
 Service name: "stifflercup-server"
 https://www.mongodb.com/try/download/community
+Am besten MongoDB Compass mit installieren und dort den Connection string erstellen.
 
 ## Dashboard
 npm install -g parse-dashboard
