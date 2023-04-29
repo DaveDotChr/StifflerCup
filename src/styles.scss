@@ -6,8 +6,10 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
+body, html {
+  height: 100%;
+  width: 100%;
+}
 
 // $my-primary: mat.define-palette(mat.$deep-purple, 500);
 // $my-accent: mat.define-palette(mat.$amber, A200, A100, A400);

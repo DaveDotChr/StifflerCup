@@ -1,4 +1,14 @@
+import { User } from "parse";
 import { ParseDBObject } from "./ParseDBObject";
+
+
+export interface DisplayConfig {
+    title_pos: "top" | "bottom" | "middle",
+    picture_pos: "",
+    picture_type: "background" | "extra",
+    background_color: "default" | "red" | "grey" | "white"
+}
+
 
 export class Frage extends ParseDBObject {
 
@@ -8,18 +18,21 @@ export class Frage extends ParseDBObject {
     }
 
     frage: string = "";
-    punkte: number = 0;
+    punktevorschlag: number = 0;
     image: Parse.File;
+    displayConfig: DisplayConfig;
+    ersteller: User;
+    anzahlAntworten: number; //-> Wenn bei Fragen mehrere Nennungen gebraucht werden. 
+    antwortvorschlaege: string[] = []; //-> Gegen antwort Klasse/interface austauschen
 
-
-    prepareForAPP(): void {
+    override prepareForAPP(): void {
         this.frage = this.get("frage")
-        this.punkte = this.get("punkte")
+        this.punktevorschlag = this.get("punktevorschlag")
         this.image = this.get("image")
     }
-    prepareForDB(): void {
+    override prepareForDB(): void {
         this.set("frage", this.frage);
-        this.set("punkte", this.punkte);
+        this.set("punktevorschlag", this.punktevorschlag);
         this.set("image", this.image);
     }
 

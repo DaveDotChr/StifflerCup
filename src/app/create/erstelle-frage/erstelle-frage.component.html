@@ -1,12 +1,48 @@
-<p>erstelle-frage works!</p>
-<input mat-input type="file">
+<!-- <input mat-input type="file"> -->
 
-<button mat-raised-button color="primary" (click)="fragenSelektieren()"> Fragen selektieren </button>
+<!-- <button mat-raised-button color="primary" (click)="fragenSelektieren()"> Fragen selektieren </button> -->
+<div class="flex flex-row w-full h-full">
+  <!-- Fragen Details editieren -->
+  <div class="w-1/3 p-8 h-full mat-border-copy flex flex-col">
+    <mat-form-field appearance="fill">
+      <mat-label>Frage</mat-label>
+      <input matInput type="text">
+    </mat-form-field>
+
+    <div class="flex flex-col">
+      <mat-label>Schwierigkeit</mat-label>
+      <mat-slider [min]="min" [max]="max" step="1" discrete>
+        <input matSliderThumb>
+      </mat-slider>
+    </div>
+    <mat-form-field appearance="fill">
+      <mat-label>Frage</mat-label>
+      <input matInput type="number" min="1" [(ngModel)]="anz_antworten"  (ngModelChange)="changeAntwortmenge($event)">
+    </mat-form-field>
+
+    <div *ngFor="let antwort of frage.antwortvorschlaege">
+      Antwortmöglichkeit
+    </div>
+
+  </div>
+
+  <app-display-frage class="w-2/3 h-full"></app-display-frage>
+
+</div>
+
+<!-- Fragen Designer -> Zeigt an wie die Frage im quiz aussehen wird
+        Hier könnte man auch möglichkeiten zum verschieben von elementen geben.
+        -> Überschrift unten
+        -> Position vom bild
+        -> andere extras etc.
+    -->
+
+
 
 <div class="bg-orange-500">
-    <div *ngFor="let frage of fragen" class="mb-5">
-        <div>Frage: {{frage.frage}}</div>
-        <div>Punkte: {{frage.punkte}}</div>
-        <img *ngIf="frage.image != undefined" src={{frage.image._url}}>
-    </div>
+  <div *ngFor="let frage of fragen" class="mb-5">
+    <div>Frage: {{frage.frage}}</div>
+    <div>Punkte: {{frage.punktevorschlag}}</div>
+    <img *ngIf="frage.image != undefined" src={{frage.image._url}}>
+  </div>
 </div>

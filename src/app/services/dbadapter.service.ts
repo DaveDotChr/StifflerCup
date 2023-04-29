@@ -3,6 +3,7 @@ import * as Parse from 'parse';
 import { Frage } from '../model/Frage';
 import { ParseDBObject } from '../model/ParseDBObject';
 import { Subject, map } from 'rxjs';
+import { Cup } from '../model/Cup';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,7 @@ export class DBAdapterService {
 
   constructor() {
     Parse.Object.registerSubclass("Frage",Frage);
+    Parse.Object.registerSubclass("Cup", Cup);
   }
 
   saveToDB<T extends ParseDBObject>(model: T): Promise<T>{
@@ -56,5 +58,7 @@ export class DBAdapterService {
     });
     return result;
   }
+
+
 
 }

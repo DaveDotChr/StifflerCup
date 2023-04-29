@@ -1,6 +1,36 @@
-<div class="mat-app-background">
-<button mat-raised-button routerLink="create">sdf</button>
-App Component Xoan ist ein dummer retard
-
-<router-outlet></router-outlet>
+<mat-toolbar class="max-h-14 !pl-0">
+  <div class="w-14 flex justify-center">
+    <button mat-icon-button color="accent">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+  <div class="flex items-center justify-between w-[calc(100%-3.5rem)]">
+    <div class="mr-2 ml-2">{{currentPage}}</div>
+    <!-- <button mat-mini-fab routerLink="create">
+      <mat-icon> build </mat-icon>
+    </button> -->
+    <div class="flex items-center">
+      <div>Hallo User X</div>
+      <button class="ml-4" mat-mini-fab>
+        <mat-icon> person </mat-icon>
+      </button>
+    </div>
+  </div>
+</mat-toolbar>
+<div class="h-[calc(100%_-_3.5rem)]">
+  <mat-drawer-container class="h-full">
+    <mat-drawer mode="side" disableClose="true" opened>
+      <div class="flex flex-col">
+        <button mat-mini-fab class="navbutton" routerLink="/create/createCup" color="primary">
+          <mat-icon> width_normal </mat-icon>
+        </button>
+        <button mat-mini-fab class="navbutton" routerLink="/create/createFrage" color="primary">
+          <mat-icon> quiz </mat-icon>
+        </button>
+      </div>
+    </mat-drawer>
+    <mat-drawer-content>
+      <router-outlet></router-outlet>
+    </mat-drawer-content>
+  </mat-drawer-container>
 </div>

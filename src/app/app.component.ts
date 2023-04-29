@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import * as Parse from 'parse';
 import { DBAdapterService } from './services/dbadapter.service';
-import { Frage } from './model/Frage';
+import { ActivatedRoute, NavigationEnd, NavigationStart, Router } from '@angular/router';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +12,9 @@ export class AppComponent implements OnInit{
   title = 'StifflerCup';
 
 
-  constructor(private dbAdapter: DBAdapterService){}
+  constructor(private dbAdapter: DBAdapterService,
+              private router: Router,
+              private route: ActivatedRoute){}
   // Modules:
   // 1. Fragen erstellen/editieren/löschen
   // 2. Quiz zusammenstellen
@@ -23,7 +25,23 @@ export class AppComponent implements OnInit{
   //   -> Auswahl von Bestimmtem obrigem Modul nach einloggen, z.B. 1,2,5
   // Login, breitreten und Home einfach im App module da alles relativ kleine Module sein werden
 
+  currentPage: string = "Home";
+
+
   ngOnInit(){
     
+    this.router.events.pipe(filter(x => x instanceof NavigationEnd)).subscribe(() => {
+      console.log(this.router.routerState.snapshot.url);
+      
+      switch(this.router.routerState.snapshot.url){
+        case "/create/createCup":
+          this.currentPage = "Erstelle Cup";
+          break;
+        case "/create/createFrage":
+          this.currentPage = "Erstelle Frage";
+          break;
+      }
+    })
+
   }
 }
