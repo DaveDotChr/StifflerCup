@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { DBAdapterService } from './services/dbadapter.service';
 import { ActivatedRoute, NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { filter } from 'rxjs';
+import { Antwortmoeglichkeit } from './model/Antwortmoeglichkeit';
+import { AntwortTyp, Frage } from './model/Frage';
 
 @Component({
   selector: 'app-root',
@@ -29,7 +31,6 @@ export class AppComponent implements OnInit{
 
 
   ngOnInit(){
-    
     this.router.events.pipe(filter(x => x instanceof NavigationEnd)).subscribe(() => {
       console.log(this.router.routerState.snapshot.url);
       

@@ -20,7 +20,7 @@
       <input matInput type="number" min="1" [(ngModel)]="anz_antworten"  (ngModelChange)="changeAntwortmenge($event)">
     </mat-form-field>
 
-    <div *ngFor="let antwort of frage.antwortvorschlaege">
+    <div *ngFor="let antwort of frage.antwortMoeglichkeiten">
       Antwortmöglichkeit
     </div>
 

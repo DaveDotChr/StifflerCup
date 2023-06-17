@@ -6,6 +6,7 @@
     "dashboard": "parse-dashboard --dev --appId 1337 --masterKey 420 --serverURL \"http://localhost:1337/parse\""
   },
   "dependencies": {
-    "parse-server": "^3.9.0"
+    "parse-server": "^6.2.0",
+    "parse-dashboard": "5.1.0"
   }
 }

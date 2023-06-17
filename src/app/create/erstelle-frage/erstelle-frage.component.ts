@@ -3,6 +3,7 @@ import { first } from 'rxjs';
 import { Frage } from 'src/app/model/Frage';
 import { DBAdapterService } from 'src/app/services/dbadapter.service';
 import * as Parse from "parse";
+import { Antwortmoeglichkeit } from 'src/app/model/Antwortmoeglichkeit';
 
 
 @Component({
@@ -69,12 +70,12 @@ export class ErstelleFrageComponent {
 
     } else {
       this.frage.anzahlAntworten = this.anz_antworten;
-      let antworten = [].concat(this.frage.antwortvorschlaege);
+      let antworten: Antwortmoeglichkeit[] = [].concat(this.frage.antwortMoeglichkeiten);
 
       for (let index = this.anz_antworten - antworten.length; index > 0; index--) {
-        antworten.push("");
+        antworten.push(new Antwortmoeglichkeit());
       }
-      this.frage.antwortvorschlaege = antworten;
+      this.frage.antwortMoeglichkeiten = antworten;
 
     }
 

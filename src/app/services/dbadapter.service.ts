@@ -4,6 +4,7 @@ import { Frage } from '../model/Frage';
 import { ParseDBObject } from '../model/ParseDBObject';
 import { Subject, map } from 'rxjs';
 import { Cup } from '../model/Cup';
+import { Antwortmoeglichkeit } from '../model/Antwortmoeglichkeit';
 
 @Injectable({
   providedIn: 'root'
@@ -33,6 +34,13 @@ export class DBAdapterService {
 
   }
 
+  saveAllToDB<T extends ParseDBObject>(model: T): Promise<T>{
+
+    model.prepareForDB();
+    return model.save();
+
+  }
+
   saveFile(file: Parse.File){
 
     file.save().then((file) => {
@@ -42,6 +50,15 @@ export class DBAdapterService {
       
     })
 
+  }
+
+  saveFrage(frage: Frage, ...antwortmöglichkeiten: Antwortmoeglichkeit[]){
+    this.saveToDB(frage).then((ret) => {
+      antwortmöglichkeiten.forEach(element => {
+        element.frage = ret;
+        this.saveToDB(element);
+      });
+    })
   }
 
   getFrage(query: Parse.Query<Frage>): Promise<Frage | undefined>{
