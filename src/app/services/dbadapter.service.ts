@@ -5,6 +5,7 @@ import { ParseDBObject } from '../model/ParseDBObject';
 import { Subject, map } from 'rxjs';
 import { Cup } from '../model/Cup';
 import { Antwortmoeglichkeit } from '../model/Antwortmoeglichkeit';
+import { Fragenzuordnung } from '../model/Fragenzuordnung';
 
 @Injectable({
   providedIn: 'root'
@@ -15,28 +16,23 @@ export class DBAdapterService {
   //Logik welche die Daten manipuliert sollte wenn möglich dann jeweils in den Services der Module -> Create, Game etc.
   //gesammelt werden. Reines speichern/lesen der db hier.
 
-  prepfn = <T extends ParseDBObject>(model: T[] | T) => {
-    let temp = [];
-    temp.push(model);
-    temp.map(m => m.prepareForAPP());
-  }
 
 
   constructor() {
-    Parse.Object.registerSubclass("Frage",Frage);
-    Parse.Object.registerSubclass("Cup", Cup);
+    Parse.Object.registerSubclass(Frage.name, Frage);
+    Parse.Object.registerSubclass(Cup.name, Cup);
+    Parse.Object.registerSubclass(Fragenzuordnung.name, Fragenzuordnung);
+    Parse.Object.registerSubclass(Antwortmoeglichkeit.name, Antwortmoeglichkeit);
   }
 
   saveToDB<T extends ParseDBObject>(model: T): Promise<T>{
 
-    model.prepareForDB();
     return model.save();
 
   }
 
   saveAllToDB<T extends ParseDBObject>(model: T): Promise<T>{
 
-    model.prepareForDB();
     return model.save();
 
   }
@@ -70,7 +66,6 @@ export class DBAdapterService {
   getFragen(query: Parse.Query<Frage>): Subject<Frage[]>{
     let result = new Subject<Frage[]>();
     query.find().then((fragen: Frage[]) => {
-      // this.prepfn(fragen);
       result.next(fragen);
     });
     return result;

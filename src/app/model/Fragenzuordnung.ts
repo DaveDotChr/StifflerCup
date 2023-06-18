@@ -6,25 +6,36 @@ export class Fragenzuordnung extends ParseDBObject{
   
   //Speichern von maps in Parse funktioniert nicht korrekt, daher dieses workaround;
 
-  frage: Frage;
-  punkte: number;
-  cup: Cup;
-  kategorie: string;
-  
   constructor(){
-    super("Fragenzuordnung")
+    super(Fragenzuordnung.name)
+  }
+
+  public get frage(): Frage {
+    return this.get("frage");
+  }
+  public set frage(value: Frage) {
+    this.set("frage", value);
+  }
+
+  public get position(): number {
+    return this.get("position");
+  }
+  public set position(value: number) {
+    this.set("position", value);
+  }
+
+  public get cup(): Cup {
+    return this.get("cup");
+  }
+  public set cup(value: Cup) {
+    this.set("cup", value);
+  }
+
+  public get kategorie(): string {
+    return this.get("kategorie");
+  }
+  public set kategorie(value: string) {
+    this.set("kategorie", value);
   }
   
-  override prepareForDB(): void {
-    this.set("frage", this.frage);
-    this.set("cup", this.cup);
-    this.set("kategorie", this.kategorie);
-
-  }
-  override prepareForAPP(): void {
-    this.kategorie = this.get("kategorie")
-    this.cup = this.get("cup")
-    this.frage = this.get("frage")
-  }
-
 }

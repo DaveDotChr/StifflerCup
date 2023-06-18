@@ -7,8 +7,4 @@ export abstract class ParseDBObject extends Parse.Object {
         super(classname);
     }
 
-    abstract prepareForDB():void;
-
-    abstract prepareForAPP():void;
-
 }

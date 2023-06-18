@@ -5,33 +5,44 @@ import { ParseDBObject } from "./ParseDBObject";
 export class Antwortmoeglichkeit extends ParseDBObject {
     
     //Klasse beinhaltet die Prüfwerte für die Frage und die Art der Antwort
-
-    frage: Frage;
-    antworttext: string;
-    antwortanzahl: number;
-    
-    //Für Multiple choice Fragen
-    multiple_choice_option: string;
-    multiple_choice_correct: boolean;
-    
     constructor(){
-        super("Antwortmoeglichkeit")
+        super(Antwortmoeglichkeit.name)
+    }
+
+    public get frage(): Frage {
+        return this.get("frage");
+    }
+    public set frage(value: Frage) {
+        this.set("frage", value);
+    }
+
+    public get antworttext(): string {
+        return this.get("antworttext");
+    }
+    public set antworttext(value: string) {
+        this.set("antworttext", value);
     }
     
-    override prepareForDB(): void {
-        this.set("frage", this.frage);
-        // this.set("frage", this.antwortTyp);
-        this.set("antworttext", this.antworttext);
-        this.set("antwortanzahl", this.antwortanzahl);
-        this.set("multiple_choice_option", this.multiple_choice_option);
-        this.set("multiple_choice_correct", this.multiple_choice_correct);
+    public get antwortanzahl(): number {
+        return this.get("antwortanzahl");
     }
-    override prepareForAPP(): void {
-        this.antwortanzahl = this.get("antwortanzahl");
-        this.antworttext = this.get("antworttext");
-        this.frage = this.get("frage");
-        this.multiple_choice_option = this.get("multiple_choice_option");
-        this.multiple_choice_correct = this.get("multiple_choice_correct");
+    public set antwortanzahl(value: number) {
+        this.set("antwortanzahl", value);
     }
+
+    //Für Multiple choice Fragen
+    public get multiple_choice_option(): string {
+        return this.get("multiple_choice_option");
+    }
+    public set multiple_choice_option(value: string) {
+        this.set("multiple_choice_option", value);
+    }
+
+    public get multiple_choice_correct(): boolean {
+        return this.get("multiple_choice_correct");
+    }
+    public set multiple_choice_correct(value: boolean) {
+        this.set("multiple_choice_correct", value);
+    }    
 
 }

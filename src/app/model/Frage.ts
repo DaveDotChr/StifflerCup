@@ -22,34 +22,79 @@ export class Frage extends ParseDBObject {
 
     constructor(){
         //-> Name der "Collection/Tabelle" in Parse setzen.
-        super("Frage");
+        super(Frage.name);
     }
 
-    frage: string = "";
-    punktevorschlag: number = 0;
-    image: Parse.File;
-    displayConfig: DisplayConfig;
-    ersteller: User;
-    schwierigkeit: number;
-    antwortTyp: AntwortTyp;
+    get frage(): string {
+        return this.get("frage");
+    }
+    set frage(value: string) {
+        this.set("frage", value);
+    }
 
-    anzahlAntworten: number; //-> Wenn bei Fragen mehrere Nennungen gebraucht werden. 
+    public get punktevorschlag() : number {
+        return this.get("punktevorschlag");
+    }    
+    public set punktevorschlag(value: number) {
+        this.set("punktevorschlag", value)
+    }
+
+    public get image() : Parse.File {
+        return this.get("image");
+    }
+    public set image(value : Parse.File) {
+        this.set("image", value);
+    }
+    
+    
+    private _displayConfig: DisplayConfig;
+    /** 
+     * @remark "Nicht persistiertes Feld"
+     * 
+     * */ 
+    public get displayConfig(): DisplayConfig {
+        return this._displayConfig;
+    }
+    public set displayConfig(value: DisplayConfig) {
+        this._displayConfig = value;
+    }
+
+    public get ersteller(): User {
+        return this.get("ersteller");
+    }
+    public set ersteller(value: User) {
+        this.set("ersteller", value);
+    }
+
+    public get schwierigkeit(): number {
+        return this.get("schwierigkeit");
+    }
+    public set schwierigkeit(value: number) {
+        this.set("schwierigkeit", value);
+    }
+
+    public get antwortTyp(): AntwortTyp {
+        return this.get("antwortTyp");
+    }
+    public set antwortTyp(value: AntwortTyp) {
+        this.set("antwortTyp", value);
+    }
+
+    //-> Wenn bei Fragen mehrere Nennungen gebraucht werden. 
+    public get anzahlAntworten(): number {
+        return this.get("anzahlAntworten");
+    }
+    public set anzahlAntworten(value: number) {
+        this.set("anzahlAntworten", value);
+    }
+
     //transientes feld, nicht in db speichern sonst redundant
-    antwortMoeglichkeiten: Antwortmoeglichkeit[];
-
-    override prepareForAPP(): void {
-        this.frage = this.get("frage");
-        this.punktevorschlag = this.get("punktevorschlag");
-        this.image = this.get("image");
-        this.schwierigkeit = this.get("schwierigkeit");
-
+    private _antwortMoeglichkeiten: Antwortmoeglichkeit[];
+    public get antwortMoeglichkeiten(): Antwortmoeglichkeit[] {
+        return this._antwortMoeglichkeiten;
     }
-    override prepareForDB(): void {
-        this.set("frage", this.frage);
-        this.set("punktevorschlag", this.punktevorschlag);
-        this.set("image", this.image);
-        this.set("schwierigkeit", this.schwierigkeit);
+    public set antwortMoeglichkeiten(value: Antwortmoeglichkeit[]) {
+        this._antwortMoeglichkeiten = value;
     }
-
 
 }

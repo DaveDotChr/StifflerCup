@@ -22,7 +22,7 @@ export class ErstelleCupComponent {
   erstelleCup(){
     let cup = new Cup();
 
-    cup.fragen = new Map<string, Frage[]>();
+    cup.fragen = new Map<string, Fragenzuordnung[]>();
     let query = new Parse.Query(Frage);
     this.dbAdapter.getFragen(query).pipe(first()).subscribe((x) => {
       x.forEach((y) => {

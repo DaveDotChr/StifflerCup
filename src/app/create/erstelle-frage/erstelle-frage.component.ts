@@ -85,7 +85,6 @@ export class ErstelleFrageComponent {
     let query = new Parse.Query(Frage).include("image");
     this.dbAdapter.getFragen(query).pipe(first()).subscribe((fragen: Frage[]) => {
       this.fragen = fragen;
-      fragen.map(x => x.prepareForAPP());
       console.log(fragen);
     });
   }
