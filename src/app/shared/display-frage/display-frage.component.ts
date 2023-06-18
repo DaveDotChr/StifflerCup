@@ -14,7 +14,9 @@ export class DisplayFrageComponent {
 
   @Input('display-Frage') frage: Frage;
 
+  constructor(){
 
+  }
 
 
 

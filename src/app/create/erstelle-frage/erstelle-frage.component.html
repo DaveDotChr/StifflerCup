@@ -1,9 +1,9 @@
 <!-- <input mat-input type="file"> -->
 
 <!-- <button mat-raised-button color="primary" (click)="fragenSelektieren()"> Fragen selektieren </button> -->
-<div class="flex flex-row w-full h-full">
+<div class="flex flex-row w-full h-full p-4 space-x-4">
   <!-- Fragen Details editieren -->
-  <div class="w-1/3 p-8 h-full mat-border-copy flex flex-col">
+  <div class="w-1/3 h-full flex flex-col box-content-layout">
     <mat-form-field appearance="fill">
       <mat-label>Frage</mat-label>
       <input matInput type="text">
@@ -17,7 +17,7 @@
     </div>
     <mat-form-field appearance="fill">
       <mat-label>Frage</mat-label>
-      <input matInput type="number" min="1" [(ngModel)]="anz_antworten"  (ngModelChange)="changeAntwortmenge($event)">
+      <input matInput type="number" min="1" [(ngModel)]="anz_antworten" (ngModelChange)="changeAntwortmenge($event)">
     </mat-form-field>
 
     <div *ngFor="let antwort of frage.antwortMoeglichkeiten">
@@ -25,9 +25,19 @@
     </div>
 
   </div>
-
-  <app-display-frage class="w-2/3 h-full"></app-display-frage>
-
+  <div class="h-full w-2/3">
+    <div class="h-2/3 w-full box-content-layout">
+      <app-display-frage [display-Frage]="frage"></app-display-frage>
+    </div>
+    <div class="h-1/3 flex pt-4 space-x-4">
+      <div class="w-1/2 box-content-layout">
+        Layout
+      </div>
+      <div class="w-1/2 box-content-layout">
+        <div>Design</div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- Fragen Designer -> Zeigt an wie die Frage im quiz aussehen wird

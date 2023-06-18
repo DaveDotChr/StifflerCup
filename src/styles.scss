@@ -11,6 +11,13 @@ body, html {
   width: 100%;
 }
 
+@layer components {
+  .box-content-layout {
+    @apply p-4 rounded-3xl bg-[#424242] shadow
+  }
+}
+
+
 // $my-primary: mat.define-palette(mat.$deep-purple, 500);
 // $my-accent: mat.define-palette(mat.$amber, A200, A100, A400);
 
