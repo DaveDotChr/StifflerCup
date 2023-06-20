@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, SimpleChanges } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, SimpleChanges } from '@angular/core';
 import { first } from 'rxjs';
 import { Frage } from 'src/app/model/Frage';
 import { DBAdapterService } from 'src/app/services/dbadapter.service';
@@ -11,7 +11,7 @@ import { Antwortmoeglichkeit } from 'src/app/model/Antwortmoeglichkeit';
   templateUrl: './erstelle-frage.component.html',
   styleUrls: ['./erstelle-frage.component.scss']
 })
-export class ErstelleFrageComponent {
+export class ErstelleFrageComponent implements OnInit {
 
   fragen: Frage[] = [];
   maxImgSize = 3000000; //In bytes
@@ -21,16 +21,17 @@ export class ErstelleFrageComponent {
   max: number = this.schwierigkeiten[this.schwierigkeiten.length-1];
   anz_antworten: number = 0;
   frage: Frage = new Frage();
+  
 
 
   constructor(private dbAdapter: DBAdapterService, private ref: ChangeDetectorRef) { }
 
-  onchanges
-
   ngOnInit() {
-    
+    this.loadQuestion(this.frage);
     let image: File;
     let reader: FileReader = new FileReader();
+
+
 
     reader.onload = (file) => {
       this.base64img = file.target.result.toString();
@@ -55,6 +56,13 @@ export class ErstelleFrageComponent {
 
       }
     })
+  }
+
+  async loadQuestion(frage: Frage){
+    let query = new Parse.Query(Frage);
+    this.frage = await this.dbAdapter.getFrage(query);
+    console.log(this.frage);
+    
   }
 
   changeAntwortmenge(event: Event) {
