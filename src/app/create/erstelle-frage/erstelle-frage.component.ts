@@ -1,39 +1,43 @@
-import { ChangeDetectorRef, Component, SimpleChanges } from '@angular/core';
+import { ChangeDetectorRef, Component, HostListener, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { first } from 'rxjs';
-import { Frage } from 'src/app/model/Frage';
+import { AntwortTyp, Frage } from 'src/app/model/Frage';
 import { DBAdapterService } from 'src/app/services/dbadapter.service';
 import * as Parse from "parse";
 import { Antwortmoeglichkeit } from 'src/app/model/Antwortmoeglichkeit';
-
+import { MatChipListboxChange } from '@angular/material/chips';
 
 @Component({
   selector: 'app-erstelle-frage',
   templateUrl: './erstelle-frage.component.html',
   styleUrls: ['./erstelle-frage.component.scss']
 })
-export class ErstelleFrageComponent {
-
-  fragen: Frage[] = [];
-  maxImgSize = 3000000; //In bytes
-  base64img: string;
+export class ErstelleFrageComponent implements OnInit {
+  //default Werte
   schwierigkeiten: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   min: number = this.schwierigkeiten[0];
   max: number = this.schwierigkeiten[this.schwierigkeiten.length-1];
+
+  //
+  fragen: Frage[] = [];
+  maxImgSize = 0.5 * 1024 * 1024; //In bytes
+  base64img: string;
+  
   anz_antworten: number = 0;
+  antw_moeglichkeiten: Antwortmoeglichkeit[] = [];
   frage: Frage = new Frage();
+  type: typeof AntwortTyp = AntwortTyp;
 
 
   constructor(private dbAdapter: DBAdapterService, private ref: ChangeDetectorRef) { }
 
   ngOnInit() {
-    
-    new Parse.Query(Frage).first().then((frage) => {
-      this.frage = frage;
-    });
-
-
+    //TODO: Muss garantiert werden dass Werte aus den vorherigen Fragen nicht bei wechsel mitgenommen werden.
+    this.frage.antwortTyp = AntwortTyp.Text;
+    this.loadQuestion(this.frage);
     let image: File;
     let reader: FileReader = new FileReader();
+
+
 
     reader.onload = (file) => {
       this.base64img = file.target.result.toString();
@@ -58,6 +62,37 @@ export class ErstelleFrageComponent {
 
       }
     })
+  }
+
+  addMCAnswer(){
+    this.anz_antworten++;
+    let antw = new Antwortmoeglichkeit();
+    antw.frage = this.frage;
+    this.antw_moeglichkeiten.push(antw);
+  }
+
+  removeMCAnswer(antwort: Antwortmoeglichkeit){
+    let index = this.antw_moeglichkeiten.indexOf(antwort);
+    this.antw_moeglichkeiten.splice(index, 1);
+  }
+
+  test(event: MatChipListboxChange){
+    this.frage.antwortTyp = event.source.value as AntwortTyp;
+    console.log(this.frage.antwortTyp);
+    
+  }
+
+  @HostListener("MatChipSelectionChange")
+  handleTypeChange(event: MatChipListboxChange){
+    console.log(event.source.value);
+    
+  }
+
+  async loadQuestion(frage: Frage){
+    let query = new Parse.Query(Frage);
+    this.frage = await this.dbAdapter.getFrage(query);
+    console.log(this.frage);
+    
   }
 
   changeAntwortmenge(event: Event) {

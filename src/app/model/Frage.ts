@@ -7,7 +7,8 @@ export enum AntwortTyp {
     Text,
     Anzahl,
     Zeichnung,
-    Nennungen
+    Nennungen,
+    Vervollstaendigen
 }
 
 export interface DisplayConfig {
