@@ -25,10 +25,13 @@ export class ErstelleFrageComponent {
 
   constructor(private dbAdapter: DBAdapterService, private ref: ChangeDetectorRef) { }
 
-  onchanges
-
   ngOnInit() {
     
+    new Parse.Query(Frage).first().then((frage) => {
+      this.frage = frage;
+    });
+
+
     let image: File;
     let reader: FileReader = new FileReader();
 
