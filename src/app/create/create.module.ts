@@ -11,6 +11,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select'; 
 import {MatSliderModule} from '@angular/material/slider'; 
 import { FormsModule } from '@angular/forms';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatChipsModule } from '@angular/material/chips'
+import { MatIconModule } from '@angular/material/icon';
 /*
   Modul soll das erstellen/editieren und löschen von Fragen und einem kompletten Quiz/StifflerCup umfassen
   Ebenfalls sollte man sich anschauen können welche Fragen existieren um diesen bei sich einbauen zu können
@@ -38,7 +41,10 @@ import { FormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatSelectModule,
     MatSliderModule,
-    FormsModule
+    FormsModule,
+    MatDividerModule,
+    MatChipsModule,
+    MatIconModule
 
   ]
 })
