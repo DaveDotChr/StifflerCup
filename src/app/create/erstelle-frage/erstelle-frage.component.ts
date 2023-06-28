@@ -21,7 +21,7 @@ export class ErstelleFrageComponent implements OnInit {
   fragen: Frage[] = [];
   maxImgSize = 0.5 * 1024 * 1024; //In bytes
   base64img: string;
-  
+  mc_anz_korrekt: number = 0;
   anz_antworten: number = 0;
   antw_moeglichkeiten: Antwortmoeglichkeit[] = [];
   frage: Frage = new Frage();

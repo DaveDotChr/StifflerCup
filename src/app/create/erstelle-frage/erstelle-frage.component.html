@@ -40,24 +40,27 @@
         </div>
         <div *ngSwitchCase="'Multiple_Choice'">
           <div class="flex items-center mb-2">
-            <button mat-mini-fab (click)="addMCAnswer()">
+            <button mat-icon-button color="primary" (click)="addMCAnswer()">
               <mat-icon>add</mat-icon>
             </button>
             <div class="text-lg ml-4">{{anz_antworten}}</div>
           </div>
           <mat-divider></mat-divider>
 
-          <div>
-            <div *ngFor="let antwort of antw_moeglichkeiten">
-              <div class="flex items-center">
-                <button mat-icon-button (click)="removeMCAnswer(antwort)">
-                  <mat-icon>remove</mat-icon>
-                </button>
-                <mat-form-field>
+
+          <div *ngFor="let antwort of antw_moeglichkeiten">
+            <div class="flex items-center mb-2 mt-2">
+              <button mat-icon-button color="warn" (click)="removeMCAnswer(antwort)">
+                <mat-icon>delete</mat-icon>
+              </button>
+              <div>
+                <mat-form-field class="flex items-center">
                   <input matInput [(ngModel)]="antwort.antworttext" type="text">
                 </mat-form-field>
               </div>
             </div>
+            <div class="bg-red-500 h-full"></div>
+            <div class="bg-blue-500 h-full"></div>
           </div>
 
         </div>
