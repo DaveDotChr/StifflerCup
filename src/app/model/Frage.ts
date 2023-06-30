@@ -3,12 +3,14 @@ import { ParseDBObject } from "./ParseDBObject";
 import { Antwortmoeglichkeit } from "./Antwortmoeglichkeit";
 
 export enum AntwortTyp {
+    Empty,
     Multiple_Choice,
     Text,
     Anzahl,
     Zeichnung,
     Nennungen,
-    Vervollstaendigen
+    Vervollstaendigen,
+    Sortieren
 }
 
 export interface DisplayConfig {
@@ -24,6 +26,7 @@ export class Frage extends ParseDBObject {
     constructor(){
         //-> Name der "Collection/Tabelle" in Parse setzen.
         super(Frage.name);
+        this.antwortTyp = AntwortTyp.Empty;
     }
 
     get frage(): string {

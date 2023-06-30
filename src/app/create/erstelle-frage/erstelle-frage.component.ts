@@ -32,8 +32,10 @@ export class ErstelleFrageComponent implements OnInit {
 
   ngOnInit() {
     //TODO: Muss garantiert werden dass Werte aus den vorherigen Fragen nicht bei wechsel mitgenommen werden.
-    this.frage.antwortTyp = AntwortTyp.Text;
-    this.loadQuestion(this.frage);
+    // this.frage.antwortTyp = AntwortTyp.Text;
+    // this.loadQuestion(this.frage);
+    
+
     let image: File;
     let reader: FileReader = new FileReader();
 
@@ -53,15 +55,15 @@ export class ErstelleFrageComponent implements OnInit {
     }
 
 
-    document.querySelector("input").addEventListener('change', (event: Event) => {
-      image = (<HTMLInputElement>event.target).files[0];
-      if (image.size <= this.maxImgSize) {
-        reader.readAsDataURL(image);
-      } else {
-        console.log("Dein Bild is zu mächtig!");
+    // document.querySelector("input").addEventListener('change', (event: Event) => {
+    //   image = (<HTMLInputElement>event.target).files[0];
+    //   if (image.size <= this.maxImgSize) {
+    //     reader.readAsDataURL(image);
+    //   } else {
+    //     console.log("Dein Bild is zu mächtig!");
 
-      }
-    })
+    //   }
+    // })
   }
 
   addMCAnswer(){
@@ -71,20 +73,19 @@ export class ErstelleFrageComponent implements OnInit {
     this.antw_moeglichkeiten.push(antw);
   }
 
+  deselectType(){
+    this.frage.antwortTyp = AntwortTyp.Empty;
+  }
+
   removeMCAnswer(antwort: Antwortmoeglichkeit){
     let index = this.antw_moeglichkeiten.indexOf(antwort);
     this.antw_moeglichkeiten.splice(index, 1);
+    this.anz_antworten--;
   }
 
   test(event: MatChipListboxChange){
     this.frage.antwortTyp = event.source.value as AntwortTyp;
     console.log(this.frage.antwortTyp);
-    
-  }
-
-  @HostListener("MatChipSelectionChange")
-  handleTypeChange(event: MatChipListboxChange){
-    console.log(event.source.value);
     
   }
 
