@@ -31,10 +31,10 @@ export class DBAdapterService {
 
   }
 
-  saveAllToDB<T extends ParseDBObject>(model: T): Promise<T>{
-
-    return model.save();
-
+  saveAllToDB<T extends ParseDBObject>(model: T[]){
+    model.forEach(x => {
+      x.save();
+    })
   }
 
   saveFile(file: Parse.File){
@@ -70,6 +70,17 @@ export class DBAdapterService {
     });
     return result;
   }
+
+  getFragenLazy(): Subject<Frage[]> {
+    let result = new Subject<Frage[]>();
+    let query = new Parse.Query(Frage);
+    query.limit(10);
+    query.find().then((fragen: Frage[]) => {
+      result.next(fragen);
+    });
+    return result;
+  }
+
 
 
 

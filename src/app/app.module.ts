@@ -10,6 +10,7 @@ import {MatIconModule} from '@angular/material/icon';
 //Material Components
 import { MatButtonModule } from '@angular/material/button'
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatDivider, MatDividerModule } from '@angular/material/divider';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatButtonModule,
     MatIconModule,
     MatSidenavModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

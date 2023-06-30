@@ -14,6 +14,8 @@ import { FormsModule } from '@angular/forms';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatChipsModule } from '@angular/material/chips'
 import { MatIconModule } from '@angular/material/icon';
+import { FragenbrowserComponent } from './fragenbrowser/fragenbrowser.component';
+import {CdkAccordionModule} from '@angular/cdk/accordion'; 
 /*
   Modul soll das erstellen/editieren und löschen von Fragen und einem kompletten Quiz/StifflerCup umfassen
   Ebenfalls sollte man sich anschauen können welche Fragen existieren um diesen bei sich einbauen zu können
@@ -30,7 +32,8 @@ import { MatIconModule } from '@angular/material/icon';
   declarations: [
     ErstelleFrageComponent,
     CreateComponent,
-    ErstelleCupComponent
+    ErstelleCupComponent,
+    FragenbrowserComponent
   ],
   imports: [
     CommonModule,
@@ -44,8 +47,8 @@ import { MatIconModule } from '@angular/material/icon';
     FormsModule,
     MatDividerModule,
     MatChipsModule,
-    MatIconModule
-
+    MatIconModule,
+    CdkAccordionModule
   ]
 })
 export class CreateModule { }

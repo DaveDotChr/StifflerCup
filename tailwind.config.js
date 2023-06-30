@@ -5,7 +5,14 @@ module.exports = {
     "./src/**/*.{html,ts}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      flexGrow: {
+        2: '2'
+      },
+      scale: {
+        102: "1.02"
+      }
+    },
   },
   plugins: [],
 }

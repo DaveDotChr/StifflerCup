@@ -47,6 +47,7 @@
               <textarea matInput placeholder="Antworttext"></textarea>
             </mat-form-field>
           </div>
+          <!-- Multiple Choice -->
           <div *ngSwitchCase="'Multiple_Choice'">
             <div class="flex items-center mb-2">
               <button mat-icon-button color="primary" (click)="addMCAnswer()">
@@ -73,9 +74,13 @@
             </div>
 
           </div>
+          <!-- Nennungen -->
           <div *ngSwitchCase="'Nennungen'">3</div>
+          <!-- Anzahl -->
           <div *ngSwitchCase="'Anzahl'">4</div>
+          <!-- Vervollstaendigen -->
           <div *ngSwitchCase="'Vervollstaendigen'">5</div>
+          <!-- Sortieren -->
           <div *ngSwitchCase="'Sortieren'">5</div>
         </div>
       </div>
