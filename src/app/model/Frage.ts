@@ -29,6 +29,9 @@ export class Frage extends ParseDBObject {
         this.antwortTyp = AntwortTyp.Empty;
     }
 
+    favorit: boolean = false;
+
+
     get frage(): string {
         return this.get("frage");
     }

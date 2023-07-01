@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, HostListener, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { first } from 'rxjs';
 import { AntwortTyp, Frage } from 'src/app/model/Frage';
 import { DBAdapterService } from 'src/app/services/dbadapter.service';
@@ -17,11 +17,8 @@ export class ErstelleFrageComponent implements OnInit {
   min: number = this.schwierigkeiten[0];
   max: number = this.schwierigkeiten[this.schwierigkeiten.length-1];
 
-  //
-  fragen: Frage[] = [];
   maxImgSize = 0.5 * 1024 * 1024; //In bytes
   base64img: string;
-  mc_anz_korrekt: number = 0;
   anz_antworten: number = 0;
   antw_moeglichkeiten: Antwortmoeglichkeit[] = [];
   frage: Frage = new Frage();
@@ -96,6 +93,10 @@ export class ErstelleFrageComponent implements OnInit {
     
   }
 
+  save(){
+    this.dbAdapter.saveFrage(this.frage, this.antw_moeglichkeiten);
+  }
+
   changeAntwortmenge(event: Event) {
     console.log(event);
     
@@ -118,14 +119,6 @@ export class ErstelleFrageComponent implements OnInit {
 
     }
 
-  }
-
-  fragenSelektieren() {
-    let query = new Parse.Query(Frage).include("image");
-    this.dbAdapter.getFragen(query).pipe(first()).subscribe((fragen: Frage[]) => {
-      this.fragen = fragen;
-      console.log(fragen);
-    });
   }
 
 }

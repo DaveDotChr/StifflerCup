@@ -24,23 +24,32 @@
         <div class="w-4/5 text-left p-4">Titel</div>
         <div class="w-1/5 text-left p-4">Typ</div>
       </div>
-      <div>
-        <cdk-accordion>
-          <cdk-accordion-item *ngFor="let frage of fragen$ | async" #accordionItem="cdkAccordionItem"
-            class="block w-full border-solid border-gray-400 border-t-2 border-r-2 border-l-2 first-of-type:rounded-t-lg last-of-type:rounded-b-lg last-of-type:border-b-2">
-            <div>
-              <div class="flex justify-center items-center h-14 cursor-pointer"
-                (click)="accordionItem.toggle()">
-                <div class="w-4/5 text-left p-4">{{frage.frage}}</div>
-                <div class="w-1/5 text-left p-4">{{antwortTyp[frage.antwortTyp]}}</div>
+      <div class="w-full">
+        <div class="mb-4 w-full last-of-type:mb-0 flex flex-row items-center" *ngFor="let frage of fragen$ | async">
+          <cdk-accordion class="w-full">
+            <cdk-accordion-item #accordionItem="cdkAccordionItem"
+              class="block w-full rounded-xl bg-[#312636]">
+              <div>
+                <div class="flex justify-center items-center h-14 cursor-pointer"
+                  (click)="accordionItem.toggle()">
+                  <div class="w-4/5 text-left p-4">{{frage.frage}}</div>
+                  <div class="w-1/5 text-left p-4">{{antwortTyp[frage.antwortTyp]}}</div>
+                </div>
+                <div class="p-4 bg-[#231b26]" [style.display]="accordionItem.expanded ? '' : 'none'">
+                  ich bin expandiert
+                </div>
               </div>
-              <div class="p-4" [style.display]="accordionItem.expanded ? '' : 'none'">
-                ich bin expandiert
-              </div>
-            </div>
-          </cdk-accordion-item>
-
-        </cdk-accordion>
+            </cdk-accordion-item>
+          </cdk-accordion>
+          <button mat-icon-button (click)="frage.favorit = !frage.favorit">
+            <mat-icon *ngIf="!frage.favorit">
+              star_outlined
+            </mat-icon>
+            <mat-icon *ngIf="frage.favorit">
+              star
+            </mat-icon>
+          </button>
+        </div>
       </div>
     </div>
 

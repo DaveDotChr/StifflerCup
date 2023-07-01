@@ -48,7 +48,7 @@ export class DBAdapterService {
 
   }
 
-  saveFrage(frage: Frage, ...antwortmöglichkeiten: Antwortmoeglichkeit[]){
+  saveFrage(frage: Frage, antwortmöglichkeiten: Antwortmoeglichkeit[]){
     this.saveToDB(frage).then((ret) => {
       antwortmöglichkeiten.forEach(element => {
         element.frage = ret;

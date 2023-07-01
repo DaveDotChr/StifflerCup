@@ -18,20 +18,24 @@
       </mat-chip-listbox>
     </div>
     <div *ngIf="frage.antwortTyp != type.Empty">
-      <div class="mb-4">
+      <div class="flex justify-between mb-4">
         <button mat-mini-fab color="primary" (click)="deselectType()">
           <mat-icon>arrow_back</mat-icon>
+        </button>
+        <button mat-raised-button color="primary" (click)="save()">
+          Frage speichern 
         </button>
       </div>
       <mat-label>Frage formulieren</mat-label>
       <mat-divider></mat-divider>
-      <mat-form-field class="mt-2" appearance="fill">
+      <mat-form-field class="mt-4 w-full" appearance="fill">
         <mat-label>Frage</mat-label>
         <input matInput [(ngModel)]="frage.frage" type="text">
       </mat-form-field>
 
-      <div class="flex flex-col">
+      <div class="flex flex-col mt-4">
         <mat-label>Schwierigkeit</mat-label>
+        <mat-divider></mat-divider>
         <mat-slider [min]="min" [max]="max" step="1" discrete>
           <input matSliderThumb>
         </mat-slider>
@@ -57,20 +61,25 @@
             </div>
             <mat-divider></mat-divider>
 
-
             <div *ngFor="let antwort of antw_moeglichkeiten">
-              <div class="flex items-center mb-2 mt-2">
-                <button mat-icon-button color="warn" (click)="removeMCAnswer(antwort)">
-                  <mat-icon>delete</mat-icon>
-                </button>
+              <div class="flex items-center justify-around mb-2 mt-2">
+                <div class="flex w-full">
+                  <button mat-icon-button color="warn" (click)="removeMCAnswer(antwort)">
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                  <div class="w-4/5">
+                    <mat-form-field class="flex w-full items-center">
+                      <input matInput [(ngModel)]="antwort.antworttext" type="text">
+                    </mat-form-field>
+                  </div>
+                </div>
                 <div>
-                  <mat-form-field class="flex items-center">
-                    <input matInput [(ngModel)]="antwort.antworttext" type="text">
-                  </mat-form-field>
+                  <button mat-icon-button (click)="antwort.multiple_choice_correct = !antwort.multiple_choice_correct">
+                    <mat-icon *ngIf="!antwort.multiple_choice_correct">check_box_outline_blank</mat-icon>
+                    <mat-icon *ngIf="antwort.multiple_choice_correct">check_box</mat-icon>
+                  </button>
                 </div>
               </div>
-              <div class="bg-red-500 h-full"></div>
-              <div class="bg-blue-500 h-full"></div>
             </div>
 
           </div>
@@ -100,10 +109,11 @@
     </div>
   </div>
 </div>
-<div class="bg-orange-500">
+<!-- TODO: Bildanzeige in display frage irgendwann einbauen -->
+<!-- <div class="bg-orange-500">
   <div *ngFor="let frage of fragen" class="mb-5">
     <div>Frage: {{frage.frage}}</div>
     <div>Punkte: {{frage.punktevorschlag}}</div>
     <img *ngIf="frage.image != undefined" src={{frage.image._url}}>
   </div>
-</div>
+</div> -->
