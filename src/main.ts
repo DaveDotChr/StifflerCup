@@ -16,7 +16,7 @@ if(isDevMode()){
    //-> Nur nutzen wenn wirklich notwendig! 
   // Parse.initialize(environment.appId, environment.jsKey, environment.masterKey);
 } else {
-  Parse.initialize(process.env['Back4App_AppID'] , environment['Back4App_JSKey']);
+  Parse.initialize(environment.appId, environment.jsKey);
 }
 console.log(environment.backend);
 
