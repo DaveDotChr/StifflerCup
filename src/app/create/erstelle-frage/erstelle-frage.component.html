@@ -18,6 +18,7 @@
       </mat-chip-listbox>
     </div>
     <div *ngIf="frage.antwortTyp != type.Empty">
+      <!-- Fragen Header -->
       <div class="flex justify-between mb-4">
         <button mat-mini-fab color="primary" (click)="deselectType()">
           <mat-icon>arrow_back</mat-icon>
@@ -41,9 +42,7 @@
         </mat-slider>
       </div>
 
-      <mat-label class="mt-4">Antwortmöglichkeiten</mat-label>
-      <mat-divider></mat-divider>
-
+      <!-- Fragen Body -->
       <div class="mt-2" *ngIf="frage.antwortTyp">
         <div [ngSwitch]="frage.antwortTyp">
           <div *ngSwitchCase="'Text'">
@@ -53,6 +52,9 @@
           </div>
           <!-- Multiple Choice -->
           <div *ngSwitchCase="'Multiple_Choice'">
+            <mat-label class="mt-4">Antwortmöglichkeiten</mat-label>
+            <mat-divider></mat-divider>
+
             <div class="flex items-center mb-2">
               <button mat-icon-button color="primary" (click)="addMCAnswer()">
                 <mat-icon>add</mat-icon>

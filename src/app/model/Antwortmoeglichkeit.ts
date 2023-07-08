@@ -6,7 +6,7 @@ export class Antwortmoeglichkeit extends ParseDBObject {
     
     //Klasse beinhaltet die Prüfwerte für die Frage und die Art der Antwort
     constructor(){
-        super(Antwortmoeglichkeit.name)
+        super("Antwortmoeglichkeit")
     }
 
     public get frage(): Frage {

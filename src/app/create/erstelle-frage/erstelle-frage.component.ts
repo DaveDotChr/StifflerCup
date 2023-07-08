@@ -94,6 +94,14 @@ export class ErstelleFrageComponent implements OnInit {
   }
 
   save(){
+    if(this.frage.antwortTyp == AntwortTyp.Multiple_Choice){
+      //default wert weil sonst undefined
+      this.antw_moeglichkeiten.forEach(a => {
+        if(a.multiple_choice_correct == undefined){
+          a.multiple_choice_correct = false;
+        }
+      })
+    }
     this.dbAdapter.saveFrage(this.frage, this.antw_moeglichkeiten);
   }
 

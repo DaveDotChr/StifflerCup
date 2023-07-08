@@ -25,7 +25,7 @@ export class Frage extends ParseDBObject {
 
     constructor(){
         //-> Name der "Collection/Tabelle" in Parse setzen.
-        super(Frage.name);
+        super("Frage");
         this.antwortTyp = AntwortTyp.Empty;
     }
 
