@@ -19,10 +19,10 @@ export class DBAdapterService {
 
 
   constructor() {
-    Parse.Object.registerSubclass(Frage.name, Frage);
-    Parse.Object.registerSubclass(Cup.name, Cup);
-    Parse.Object.registerSubclass(Fragenzuordnung.name, Fragenzuordnung);
-    Parse.Object.registerSubclass(Antwortmoeglichkeit.name, Antwortmoeglichkeit);
+    Parse.Object.registerSubclass("Frage", Frage);
+    Parse.Object.registerSubclass("Cup", Cup);
+    Parse.Object.registerSubclass("Fragenzuordnung", Fragenzuordnung);
+    Parse.Object.registerSubclass("Antwortmoeglichkeit", Antwortmoeglichkeit);
   }
 
   saveToDB<T extends ParseDBObject>(model: T): Promise<T>{
