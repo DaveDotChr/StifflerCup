@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Frage } from '../model/Frage';
 
 @Component({
   selector: 'app-home',
@@ -6,5 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
+
+
+  async test1(){
+    let query = new Parse.Query(Frage);
+    await query.first();
+  }
+
+  async test2(){
+    let query = new Parse.Query("Frage");
+    await query.first();
+  }
 
 }

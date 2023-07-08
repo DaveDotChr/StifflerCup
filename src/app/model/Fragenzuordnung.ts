@@ -7,7 +7,7 @@ export class Fragenzuordnung extends ParseDBObject{
   //Speichern von maps in Parse funktioniert nicht korrekt, daher dieses workaround;
 
   constructor(){
-    super(Fragenzuordnung.name)
+    super("Fragenzuordnung")
   }
 
   public get frage(): Frage {
