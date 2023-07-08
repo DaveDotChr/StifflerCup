@@ -9,14 +9,15 @@ import { Frage } from '../model/Frage';
 export class HomeComponent {
 
 
-  async test1(){
+   test1(){
     let query = new Parse.Query(Frage);
-    await query.first();
+     query.first().then(x => console.log(x));
+     ;
   }
 
-  async test2(){
+   test2(){
     let query = new Parse.Query("Frage");
-    await query.first();
+     query.first().then(x => console.log(x))
   }
 
 }
