@@ -16,6 +16,7 @@ import { MatChipsModule } from '@angular/material/chips'
 import { MatIconModule } from '@angular/material/icon';
 import { FragenbrowserComponent } from './fragenbrowser/fragenbrowser.component';
 import {CdkAccordionModule} from '@angular/cdk/accordion'; 
+import {CdkTableModule} from '@angular/cdk/table'; 
 /*
   Modul soll das erstellen/editieren und löschen von Fragen und einem kompletten Quiz/StifflerCup umfassen
   Ebenfalls sollte man sich anschauen können welche Fragen existieren um diesen bei sich einbauen zu können
@@ -48,7 +49,8 @@ import {CdkAccordionModule} from '@angular/cdk/accordion';
     MatDividerModule,
     MatChipsModule,
     MatIconModule,
-    CdkAccordionModule
+    CdkAccordionModule,
+    CdkTableModule
   ]
 })
 export class CreateModule { }

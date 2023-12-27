@@ -3,14 +3,14 @@ import { ParseDBObject } from "./ParseDBObject";
 import { Antwortmoeglichkeit } from "./Antwortmoeglichkeit";
 
 export enum AntwortTyp {
-    Empty,
-    Multiple_Choice,
-    Text,
-    Anzahl,
-    Zeichnung,
-    Nennungen,
-    Vervollstaendigen,
-    Sortieren
+    Empty = "Empty",
+    Multiple_Choice = "Multiple_Choice",
+    Text = "Text",
+    Anzahl = "Anzahl",
+    Zeichnung = "Zeichnung",
+    Nennungen = "Nennungen",
+    Vervollstaendigen = "Vervollstaendigen",
+    Sortieren = "Sortieren"
 }
 
 export interface DisplayConfig {
