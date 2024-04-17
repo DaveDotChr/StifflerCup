@@ -6,7 +6,7 @@ import { FragenbrowserComponent } from './fragenbrowser/fragenbrowser.component'
 
 //Alle sub componenten werden druch das router Module erzeugt und erhalten die url ../create/{childroute}
 
-const routes: Routes = [{
+export const routes: Routes = [{
     path: "", component: CreateComponent, children: [
         {path: "createFrage", component: ErstelleFrageComponent},
         {path: "createCup", component: ErstelleCupComponent},
@@ -14,4 +14,3 @@ const routes: Routes = [{
     ]
 }];
 
-export const creationRouting = RouterModule.forChild(routes);

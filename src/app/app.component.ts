@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DBAdapterService } from './services/dbadapter.service';
-import { ActivatedRoute, NavigationEnd, NavigationStart, Router, RouterLink, RouterOutlet } from '@angular/router';
+import { NavigationEnd, NavigationStart, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { filter } from 'rxjs';
 import { AntwortTyp, Frage } from './model/Frage';
 import { Antwortmoeglichkeit } from './model/Antwortmoeglichkeit';
@@ -23,8 +23,7 @@ export class AppComponent implements OnInit {
 
 
   constructor(private dbAdapter: DBAdapterService,
-    private router: Router,
-    private route: ActivatedRoute) { }
+    private router: Router) { }
   // Modules:
   // 1. Fragen erstellen/editieren/löschen
   // 2. Quiz zusammenstellen
