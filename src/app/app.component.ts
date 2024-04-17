@@ -1,16 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { DBAdapterService } from './services/dbadapter.service';
-import { ActivatedRoute, NavigationEnd, NavigationStart, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, NavigationStart, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { filter } from 'rxjs';
 import { AntwortTyp, Frage } from './model/Frage';
 import { Antwortmoeglichkeit } from './model/Antwortmoeglichkeit';
 import { Cup } from './model/Cup';
 import { Fragenzuordnung } from './model/Fragenzuordnung';
+import { MatDrawerContainer, MatDrawer, MatDrawerContent } from '@angular/material/sidenav';
+import { MatIcon } from '@angular/material/icon';
+import { MatIconButton, MatMiniFabButton } from '@angular/material/button';
+import { MatToolbar } from '@angular/material/toolbar';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss'],
+    standalone: true,
+    imports: [MatToolbar, MatIconButton, MatIcon, MatMiniFabButton, MatDrawerContainer, MatDrawer, RouterLink, MatDrawerContent, RouterOutlet]
 })
 export class AppComponent implements OnInit {
   title = 'StifflerCup';

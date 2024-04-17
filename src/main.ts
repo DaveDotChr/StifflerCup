@@ -1,11 +1,25 @@
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import * as Parse from 'parse';
-import { AppModule } from './app/app.module';
+
 import { environment } from './environments/environment';
-import { isDevMode } from '@angular/core';
+import { isDevMode, importProvidersFrom } from '@angular/core';
+import { AppComponent } from './app/app.component';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { AppRoutingModule } from './app/app-routing.module';
+import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
 
 
-platformBrowserDynamic().bootstrapModule(AppModule)
+bootstrapApplication(AppComponent, {
+    providers: [
+        importProvidersFrom(BrowserModule, AppRoutingModule, MatButtonModule, MatIconModule, MatSidenavModule, MatToolbarModule, MatDividerModule),
+        provideAnimations()
+    ]
+})
   .catch(err => console.error(err));
 
 
