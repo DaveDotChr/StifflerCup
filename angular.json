@@ -72,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "StifflerCup:build:production"
+              "buildTarget": "StifflerCup:build:production"
             },
             "development": {
-              "browserTarget": "StifflerCup:build:development"
+              "buildTarget": "StifflerCup:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "StifflerCup:build"
+            "buildTarget": "StifflerCup:build"
           }
         },
         "test": {
