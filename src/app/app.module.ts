@@ -14,21 +14,19 @@ import { MatDivider, MatDividerModule } from '@angular/material/divider';
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatButtonModule,
-    MatIconModule,
-    MatSidenavModule,
-    MatToolbarModule,
-    MatDividerModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [AppComponent],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatButtonModule,
+        MatIconModule,
+        MatSidenavModule,
+        MatToolbarModule,
+        MatDividerModule,
+        HomeComponent
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

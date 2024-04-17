@@ -5,12 +5,15 @@ import { Frage } from 'src/app/model/Frage';
 import { DBAdapterService } from 'src/app/services/dbadapter.service';
 import * as Parse from 'parse';
 import { Fragenzuordnung } from 'src/app/model/Fragenzuordnung';
+import { MatButton } from '@angular/material/button';
 
 
 @Component({
-  selector: 'app-erstelle-cup',
-  templateUrl: './erstelle-cup.component.html',
-  styleUrls: ['./erstelle-cup.component.scss']
+    selector: 'app-erstelle-cup',
+    templateUrl: './erstelle-cup.component.html',
+    styleUrls: ['./erstelle-cup.component.scss'],
+    standalone: true,
+    imports: [MatButton]
 })
 export class ErstelleCupComponent {
 

@@ -30,27 +30,25 @@ import {CdkTableModule} from '@angular/cdk/table';
 */
 
 @NgModule({
-  declarations: [
-    ErstelleFrageComponent,
-    CreateComponent,
-    ErstelleCupComponent,
-    FragenbrowserComponent
-  ],
-  imports: [
-    CommonModule,
-    creationRouting,
-    MatButtonModule,
-    MatInputModule,
-    SharedModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    MatSliderModule,
-    FormsModule,
-    MatDividerModule,
-    MatChipsModule,
-    MatIconModule,
-    CdkAccordionModule,
-    CdkTableModule
-  ]
+    imports: [
+        CommonModule,
+        creationRouting,
+        MatButtonModule,
+        MatInputModule,
+        SharedModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        MatSliderModule,
+        FormsModule,
+        MatDividerModule,
+        MatChipsModule,
+        MatIconModule,
+        CdkAccordionModule,
+        CdkTableModule,
+        ErstelleFrageComponent,
+        CreateComponent,
+        ErstelleCupComponent,
+        FragenbrowserComponent
+    ]
 })
 export class CreateModule { }

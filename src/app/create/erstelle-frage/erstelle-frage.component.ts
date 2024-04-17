@@ -4,12 +4,23 @@ import { AntwortTyp, Frage } from 'src/app/model/Frage';
 import { DBAdapterService } from 'src/app/services/dbadapter.service';
 import * as Parse from "parse";
 import { Antwortmoeglichkeit } from 'src/app/model/Antwortmoeglichkeit';
-import { MatChipListboxChange } from '@angular/material/chips';
+import { MatChipListboxChange, MatChipListbox, MatChipOption } from '@angular/material/chips';
+import { DisplayFrageComponent } from '../../shared/display-frage/display-frage.component';
+import { MatSlider, MatSliderThumb } from '@angular/material/slider';
+import { FormsModule } from '@angular/forms';
+import { MatInput } from '@angular/material/input';
+import { MatIcon } from '@angular/material/icon';
+import { MatMiniFabButton, MatButton, MatIconButton } from '@angular/material/button';
+import { MatDivider } from '@angular/material/divider';
+import { MatLabel, MatFormField } from '@angular/material/form-field';
+import { NgIf, NgSwitch, NgSwitchCase, NgFor } from '@angular/common';
 
 @Component({
-  selector: 'app-erstelle-frage',
-  templateUrl: './erstelle-frage.component.html',
-  styleUrls: ['./erstelle-frage.component.scss']
+    selector: 'app-erstelle-frage',
+    templateUrl: './erstelle-frage.component.html',
+    styleUrls: ['./erstelle-frage.component.scss'],
+    standalone: true,
+    imports: [NgIf, MatLabel, MatDivider, MatChipListbox, MatChipOption, MatMiniFabButton, MatIcon, MatButton, MatFormField, MatInput, FormsModule, MatSlider, MatSliderThumb, NgSwitch, NgSwitchCase, MatIconButton, NgFor, DisplayFrageComponent]
 })
 export class ErstelleFrageComponent implements OnInit {
   //default Werte

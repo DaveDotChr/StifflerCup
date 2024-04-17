@@ -1,10 +1,13 @@
 import { Component, Input } from '@angular/core';
 import { Frage } from 'src/app/model/Frage';
+import { MatDivider } from '@angular/material/divider';
 
 @Component({
-  selector: 'app-display-frage',
-  templateUrl: './display-frage.component.html',
-  styleUrls: ['./display-frage.component.scss']
+    selector: 'app-display-frage',
+    templateUrl: './display-frage.component.html',
+    styleUrls: ['./display-frage.component.scss'],
+    standalone: true,
+    imports: [MatDivider]
 })
 export class DisplayFrageComponent {
 

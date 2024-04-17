@@ -5,13 +5,13 @@ import { MatDividerModule } from '@angular/material/divider';
 
 
 @NgModule({
-  declarations: [DisplayFrageComponent],
-  imports: [
-    CommonModule,
-    MatDividerModule
-  ],
-  exports: [
-    DisplayFrageComponent
-  ]
+    imports: [
+        CommonModule,
+        MatDividerModule,
+        DisplayFrageComponent
+    ],
+    exports: [
+        DisplayFrageComponent
+    ]
 })
 export class SharedModule { }

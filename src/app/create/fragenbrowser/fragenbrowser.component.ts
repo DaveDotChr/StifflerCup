@@ -2,11 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, first } from 'rxjs';
 import { AntwortTyp, Frage } from 'src/app/model/Frage';
 import { DBAdapterService } from 'src/app/services/dbadapter.service';
+import { NgClass } from '@angular/common';
+import { CdkTable, CdkColumnDef, CdkHeaderCellDef, CdkHeaderCell, CdkCellDef, CdkCell, CdkHeaderRowDef, CdkHeaderRow, CdkRowDef, CdkRow } from '@angular/cdk/table';
+import { MatDivider } from '@angular/material/divider';
+import { MatIcon } from '@angular/material/icon';
+import { MatIconButton } from '@angular/material/button';
 
 @Component({
-  selector: 'app-fragenbrowser',
-  templateUrl: './fragenbrowser.component.html',
-  styleUrls: ['./fragenbrowser.component.scss']
+    selector: 'app-fragenbrowser',
+    templateUrl: './fragenbrowser.component.html',
+    styleUrls: ['./fragenbrowser.component.scss'],
+    standalone: true,
+    imports: [MatIconButton, MatIcon, MatDivider, CdkTable, CdkColumnDef, CdkHeaderCellDef, CdkHeaderCell, CdkCellDef, CdkCell, NgClass, CdkHeaderRowDef, CdkHeaderRow, CdkRowDef, CdkRow]
 })
 export class FragenbrowserComponent implements OnInit {
   

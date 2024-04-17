@@ -19,12 +19,10 @@ import { gameRouting } from './game.routing';
 */
 
 @NgModule({
-  declarations: [
-    GameComponent
-  ],
-  imports: [
-    CommonModule,
-    gameRouting
-  ]
+    imports: [
+        CommonModule,
+        gameRouting,
+        GameComponent
+    ]
 })
 export class GameModule { }

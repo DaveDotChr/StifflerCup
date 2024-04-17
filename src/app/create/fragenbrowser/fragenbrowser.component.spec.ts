@@ -8,8 +8,8 @@ describe('FragenbrowserComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [FragenbrowserComponent]
-    });
+    imports: [FragenbrowserComponent]
+});
     fixture = TestBed.createComponent(FragenbrowserComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
