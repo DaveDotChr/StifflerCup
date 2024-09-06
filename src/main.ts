@@ -1,5 +1,5 @@
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import * as Parse from 'parse';
+import Parse from 'parse';
 
 import { environment } from './environments/environment';
 import { isDevMode, importProvidersFrom } from '@angular/core';
@@ -36,5 +36,5 @@ if(isDevMode()){
 }
 console.log(environment.backend);
 
-(Parse as any).serverURL = environment.backend;
+Parse.serverURL = environment.backend;
 // Parse.User.allowCustomUserClass(true);
