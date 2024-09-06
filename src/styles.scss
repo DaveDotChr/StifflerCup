@@ -24,13 +24,13 @@ body, html {
 // // The "warn" palette is optional and defaults to red if not specified.
 // $my-warn: mat.define-palette(mat.$red-palette);
 
-$my-theme: mat.define-dark-theme((
+$my-theme: mat.m2-define-dark-theme((
  color: (
-   primary: mat.define-palette(mat.$purple-palette),
-   accent: mat.define-palette(mat.$green-palette),
-   warn: mat.define-palette(mat.$red-palette),
+   primary: mat.m2-define-palette(mat.$m2-purple-palette),
+   accent: mat.m2-define-palette(mat.$m2-green-palette),
+   warn: mat.m2-define-palette(mat.$m2-red-palette),
  ),
- typography: mat.define-typography-config(),
+ typography: mat.m2-define-typography-config(),
  density: 0,
 ));
 

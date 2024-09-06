@@ -24,9 +24,6 @@ bootstrapApplication(AppComponent, {
 })
   .catch(err => console.error(err));
 
-
-
-
 if(isDevMode()){
   Parse.initialize(environment.appId, environment.jsKey);
    //-> Nur nutzen wenn wirklich notwendig! 
