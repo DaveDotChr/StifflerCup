@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable, first } from 'rxjs';
-import { AntwortTyp, Frage } from 'src/app/model/Frage';
-import { DBAdapterService } from 'src/app/services/dbadapter.service';
+import { CdkCell, CdkCellDef, CdkColumnDef, CdkHeaderCell, CdkHeaderCellDef, CdkHeaderRow, CdkHeaderRowDef, CdkRow, CdkRowDef, CdkTable } from '@angular/cdk/table';
 import { NgClass } from '@angular/common';
-import { CdkTable, CdkColumnDef, CdkHeaderCellDef, CdkHeaderCell, CdkCellDef, CdkCell, CdkHeaderRowDef, CdkHeaderRow, CdkRowDef, CdkRow } from '@angular/cdk/table';
+import { Component, OnInit } from '@angular/core';
+import { MatIconButton } from '@angular/material/button';
 import { MatDivider } from '@angular/material/divider';
 import { MatIcon } from '@angular/material/icon';
-import { MatIconButton } from '@angular/material/button';
+import { Observable } from 'rxjs';
+import { AntwortTyp, Frage } from 'src/app/model/Frage';
+import { DBAdapterService } from 'src/app/services/dbadapter.service';
 
 @Component({
     selector: 'app-fragenbrowser',
@@ -28,12 +28,7 @@ export class FragenbrowserComponent implements OnInit {
   }
   
   ngOnInit(): void {
-    this.fragen$ = this.dbAdapter.getFragenLazy().asObservable();
-    
-
-
-
-
+    this.fragen$ = this.dbAdapter.getFragen(new Parse.Query(Frage)).asObservable();
   }
 
   test(row: Frage){

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Frage } from '../model/Frage';
 import { MatDivider } from '@angular/material/divider';
 import { RouterLink } from '@angular/router';
 
@@ -11,5 +10,4 @@ import { RouterLink } from '@angular/router';
     imports: [RouterLink, MatDivider]
 })
 export class HomeComponent {
-
 }

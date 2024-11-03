@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import * as Parse from 'parse';
-import { Frage } from '../model/Frage';
-import { ParseDBObject } from '../model/ParseDBObject';
-import { Subject, map } from 'rxjs';
-import { Cup } from '../model/Cup';
+import { Subject } from 'rxjs';
 import { Antwortmoeglichkeit } from '../model/Antwortmoeglichkeit';
+import { Cup } from '../model/Cup';
+import { Frage } from '../model/Frage';
 import { Fragenzuordnung } from '../model/Fragenzuordnung';
+import { ParseDBObject } from '../model/ParseDBObject';
 
 @Injectable({
   providedIn: 'root'
@@ -71,7 +71,7 @@ export class DBAdapterService {
     return result;
   }
 
-  getFragenLazy(): Subject<Frage[]> {
+   getFragenLazy(): Subject<Frage[]> {
     let result = new Subject<Frage[]>();
     let query = new Parse.Query(Frage);
     query.limit(10);
