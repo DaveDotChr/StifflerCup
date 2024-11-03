@@ -11,10 +11,13 @@
     </button> -->
     <div class="flex items-center">
       <div>Hallo User X</div>
-      <button class="ml-4" mat-mini-fab>
+      <button cdkOverlayOrigin (click)="isLoginOverlayOpen = !isLoginOverlayOpen" #trigger="cdkOverlayOrigin" class="ml-4" mat-mini-fab>
         <mat-icon> person </mat-icon>
       </button>
     </div>
+    <ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="trigger" [cdkConnectedOverlayOpen]="isLoginOverlayOpen" [cdkconnected]>
+      <app-login></app-login>
+    </ng-template>
   </div>
 </mat-toolbar>
 <div class="h-[calc(100%_-_3.5rem)]">

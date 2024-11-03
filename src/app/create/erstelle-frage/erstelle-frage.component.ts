@@ -1,19 +1,18 @@
+import { NgFor, NgIf, NgSwitch, NgSwitchCase } from '@angular/common';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { first } from 'rxjs';
+import { FormsModule } from '@angular/forms';
+import { MatButton, MatIconButton, MatMiniFabButton } from '@angular/material/button';
+import { MatChipListbox, MatChipListboxChange, MatChipOption } from '@angular/material/chips';
+import { MatDivider } from '@angular/material/divider';
+import { MatFormField, MatLabel } from '@angular/material/form-field';
+import { MatIcon } from '@angular/material/icon';
+import { MatInput } from '@angular/material/input';
+import { MatSlider, MatSliderThumb } from '@angular/material/slider';
+import Parse from 'parse';
+import { Antwortmoeglichkeit } from 'src/app/model/Antwortmoeglichkeit';
 import { AntwortTyp, Frage } from 'src/app/model/Frage';
 import { DBAdapterService } from 'src/app/services/dbadapter.service';
-import * as Parse from "parse";
-import { Antwortmoeglichkeit } from 'src/app/model/Antwortmoeglichkeit';
-import { MatChipListboxChange, MatChipListbox, MatChipOption } from '@angular/material/chips';
 import { DisplayFrageComponent } from '../../shared/display-frage/display-frage.component';
-import { MatSlider, MatSliderThumb } from '@angular/material/slider';
-import { FormsModule } from '@angular/forms';
-import { MatInput } from '@angular/material/input';
-import { MatIcon } from '@angular/material/icon';
-import { MatMiniFabButton, MatButton, MatIconButton } from '@angular/material/button';
-import { MatDivider } from '@angular/material/divider';
-import { MatLabel, MatFormField } from '@angular/material/form-field';
-import { NgIf, NgSwitch, NgSwitchCase, NgFor } from '@angular/common';
 
 @Component({
     selector: 'app-erstelle-frage',

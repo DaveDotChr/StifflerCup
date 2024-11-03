@@ -6,8 +6,10 @@
   "databaseURI": "mongodb://127.0.0.1:27017/stifflercup-server",
   "enforcePrivateUsers": false,
   "fileUpload": {
-    "enableForPublic": true,
+    "enableForPublic": false,
     "enableForAnonymousUser": false,
     "enableForAuthenticatedUser": true
-  }
+  },
+  "allowClientClassCreation": true,
+  "enableAnonymousUsers": false
 }

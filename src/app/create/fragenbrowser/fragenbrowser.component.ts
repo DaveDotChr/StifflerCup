@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatIconButton } from '@angular/material/button';
 import { MatDivider } from '@angular/material/divider';
 import { MatIcon } from '@angular/material/icon';
+import Parse from 'parse';
 import { Observable } from 'rxjs';
 import { AntwortTyp, Frage } from 'src/app/model/Frage';
 import { DBAdapterService } from 'src/app/services/dbadapter.service';

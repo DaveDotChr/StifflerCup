@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
+import { MatButton } from '@angular/material/button';
+import Parse from 'parse';
 import { first } from 'rxjs';
 import { Cup } from 'src/app/model/Cup';
 import { Frage } from 'src/app/model/Frage';
-import { DBAdapterService } from 'src/app/services/dbadapter.service';
-import * as Parse from 'parse';
 import { Fragenzuordnung } from 'src/app/model/Fragenzuordnung';
-import { MatButton } from '@angular/material/button';
+import { DBAdapterService } from 'src/app/services/dbadapter.service';
 
 
 @Component({
@@ -36,15 +36,7 @@ export class ErstelleCupComponent {
         this.dbAdapter.saveToDB(fz);
       })
       
-
-
       this.dbAdapter.saveToDB(cup);
     })
-
-
-
   }
-
-
-
 }

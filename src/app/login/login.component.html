@@ -1,0 +1,43 @@
+<div class="bg-slate-600  m-9 border-solid rounded-md">
+  @if(showLogin){
+    <div class="w-96 h-auto p-4">
+      <h1 class="">Einloggen</h1>
+      <div class="flex flex-col ">
+        <label for="username">Nutzername</label>
+        <input id="username" class="text-black" matInput [(ngModel)]="username" type="text">
+      </div>
+      <div class="flex flex-col  mt-4">
+        <label for="password">Passwort</label>
+        <input id="password" class="text-black" matInput [(ngModel)]="password" type="password">
+      </div>
+      <div class="mt-4 flex justify-between items-center">
+        <a (click)="showLogin = !showLogin" class="text-blue-600">Noch keinen Account?</a>
+        <button mat-raised-button (click)="loginUser()" color="accent">Einloggen</button>
+      </div>
+
+    </div>
+
+  } @else {
+    <div class="w-96 h-auto p-4">
+      <h1>Registrieren</h1>
+
+      <div class="flex flex-col">
+        <label for="username">Nutzername</label>
+        <input id="username" class="text-black" matInput [(ngModel)]="username" type="text">
+      </div>
+      <div class="flex flex-col mt-4">
+        <label for="email">Email</label>
+        <input id="email" class="text-black" matInput [(ngModel)]="email" type="email">
+      </div>
+      <div class="flex flex-col mt-4">
+        <label for="password">Passwort</label>
+        <input id="password" class="text-black" matInput [(ngModel)]="password" type="password">
+      </div>
+
+      <div class="mt-4 flex justify-between items-center">
+        <a (click)="showLogin = !showLogin" class="text-blue-600">Bereits registriert?</a>
+        <button mat-raised-button (click)="registerUser()" color="accent">Registrieren</button>
+      </div>
+    </div>
+  }
+</div>

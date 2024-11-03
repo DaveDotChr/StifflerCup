@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import * as Parse from 'parse';
+import Parse from 'parse';
 import { Subject } from 'rxjs';
 import { Antwortmoeglichkeit } from '../model/Antwortmoeglichkeit';
 import { Cup } from '../model/Cup';

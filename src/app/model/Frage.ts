@@ -1,6 +1,7 @@
-import { User } from "parse";
-import { ParseDBObject } from "./ParseDBObject";
+import Parse from 'parse';
 import { Antwortmoeglichkeit } from "./Antwortmoeglichkeit";
+import { ParseDBObject } from "./ParseDBObject";
+
 
 export enum AntwortTyp {
     Empty = "Empty",
@@ -66,10 +67,10 @@ export class Frage extends ParseDBObject {
         this._displayConfig = value;
     }
 
-    public get ersteller(): User {
+    public get ersteller(): Parse.User {
         return this.get("ersteller");
     }
-    public set ersteller(value: User) {
+    public set ersteller(value: Parse.User) {
         this.set("ersteller", value);
     }
 

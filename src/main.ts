@@ -1,18 +1,16 @@
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import Parse from 'parse';
-
-import { environment } from './environments/environment';
-import { isDevMode, importProvidersFrom } from '@angular/core';
-import { AppComponent } from './app/app.component';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatIconModule } from '@angular/material/icon';
+import { importProvidersFrom, isDevMode } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { provideAnimations } from '@angular/platform-browser/animations';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
+import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideRouter } from '@angular/router';
+import Parse from 'parse';
+import { AppComponent } from './app/app.component';
 import { routes } from './app/app.routes';
+import { environment } from './environments/environment';
 
 
 bootstrapApplication(AppComponent, {
