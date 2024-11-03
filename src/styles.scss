@@ -13,7 +13,7 @@ body, html {
 
 @layer components {
   .box-content-layout {
-    @apply p-4 rounded-3xl bg-[#424242] shadow
+    @apply p-4 rounded-xl bg-[#424242] shadow
   }
 }
 

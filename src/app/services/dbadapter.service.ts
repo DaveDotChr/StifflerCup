@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import Parse from 'parse';
 import { Subject } from 'rxjs';
 import { Antwortmoeglichkeit } from '../model/Antwortmoeglichkeit';
@@ -6,12 +6,14 @@ import { Cup } from '../model/Cup';
 import { Frage } from '../model/Frage';
 import { Fragenzuordnung } from '../model/Fragenzuordnung';
 import { ParseDBObject } from '../model/ParseDBObject';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DBAdapterService {
 
+  authService: AuthService = inject(AuthService);
   //Alle Selektierungen und speicherungen von Daten sollten in diesem service passieren.
   //Logik welche die Daten manipuliert sollte wenn möglich dann jeweils in den Services der Module -> Create, Game etc.
   //gesammelt werden. Reines speichern/lesen der db hier.
@@ -26,9 +28,11 @@ export class DBAdapterService {
   }
 
   saveToDB<T extends ParseDBObject>(model: T): Promise<T>{
-
+    if(!this.authService.$loggedIn.getValue()){
+      console.error("Anonymous users arent allowed to create Objects!");
+      throw Error("Anonymous users arent allowed to create Objects!");
+    }
     return model.save();
-
   }
 
   saveAllToDB<T extends ParseDBObject>(model: T[]){

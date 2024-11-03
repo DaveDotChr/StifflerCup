@@ -10,13 +10,25 @@
       <mat-icon> build </mat-icon>
     </button> -->
     <div class="flex items-center">
-      <div>Hallo User X</div>
+      @if(userService.currentUser){
+        <div>Hallo {{userService.currentUser.getUsername()}}</div>
+      } @else {
+        Anonym
+      }
       <button cdkOverlayOrigin (click)="isLoginOverlayOpen = !isLoginOverlayOpen" #trigger="cdkOverlayOrigin" class="ml-4" mat-mini-fab>
         <mat-icon> person </mat-icon>
       </button>
     </div>
     <ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="trigger" [cdkConnectedOverlayOpen]="isLoginOverlayOpen" [cdkconnected]>
-      <app-login></app-login>
+      @if(!userService.$loggedIn.getValue()){
+        <app-login></app-login>
+      } @else {
+        <div>
+          <div (click)="userService.logOut()">
+            Logout
+          </div>
+        </div>
+      }
     </ng-template>
   </div>
 </mat-toolbar>
@@ -24,9 +36,9 @@
   <mat-drawer-container class="h-full">
     <mat-drawer mode="side" disableClose="true" opened>
       <div class="flex flex-col">
-        <button mat-mini-fab class="navbutton" routerLink="/create/createCup" color="primary">
+        <!-- <button mat-mini-fab class="navbutton" routerLink="/create/createCup" color="primary">
           <mat-icon> width_normal </mat-icon>
-        </button>
+        </button> -->
         <button mat-mini-fab class="navbutton" routerLink="/create/createFrage" color="primary">
           <mat-icon> quiz </mat-icon>
         </button>

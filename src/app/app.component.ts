@@ -1,5 +1,5 @@
 import { OverlayModule } from '@angular/cdk/overlay';
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { MatIconButton, MatMiniFabButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { MatDrawer, MatDrawerContainer, MatDrawerContent } from '@angular/material/sidenav';
@@ -7,6 +7,7 @@ import { MatToolbar } from '@angular/material/toolbar';
 import { NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { filter } from 'rxjs';
 import { LoginComponent } from './login/login.component';
+import { AuthService } from './services/auth.service';
 import { DBAdapterService } from './services/dbadapter.service';
 
 @Component({
@@ -17,6 +18,8 @@ import { DBAdapterService } from './services/dbadapter.service';
     imports: [MatToolbar, MatIconButton, MatIcon, MatMiniFabButton, MatDrawerContainer, MatDrawer, RouterLink, MatDrawerContent, RouterOutlet, OverlayModule, LoginComponent]
 })
 export class AppComponent implements OnInit {
+  
+  userService: AuthService = inject(AuthService);
   title = 'StifflerCup';
   isLoginOverlayOpen: boolean = false;
 
@@ -49,6 +52,5 @@ export class AppComponent implements OnInit {
           break;
       }
     })
-
   }
 }

@@ -10,6 +10,7 @@ export class AuthService {
   currentUser: Parse.User;
   //TODO: Umbauen mit NGRX State management
   $loggedIn: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  authenticated: boolean = false;
 
   constructor() {
     Parse.User.enableUnsafeCurrentUser();
@@ -17,6 +18,7 @@ export class AuthService {
     if(user){
       this.currentUser = user;
       this.$loggedIn.next(true);
+      this.authenticated = true;
     }
 
   }
